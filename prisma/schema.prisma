@@ -7,10 +7,13 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Example {
-  id        String   @id @default(cuid())
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+model ShoppingItem {
+    id      String  @id @default(cuid())
+    userId  String
+    name    String
+    checked Boolean @default(false)
+    
+    user    User @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
 // Necessary for Next auth
@@ -48,6 +51,7 @@ model User {
   image         String?
   accounts      Account[]
   sessions      Session[]
+  shoppingItems ShoppingItem[]
 }
 
 model VerificationToken {
