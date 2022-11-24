@@ -8,10 +8,10 @@ interface HeaderProps {
 
 const Header: FC<HeaderProps> = ({session}) => {
     return (
-        <header className="flex justify-between relative left-0 right-0 px-12 py-4 bg-gray-700 text-white">
+        <header className="flex justify-between relative left-0 right-0 px-4 md:px-12 py-4 bg-gray-700 text-white">
             <h1 className="text-3xl font-bold">Shopping List</h1>
 
-            <div className="flex gap-8">
+            <div className="flex gap-4">
                 <button
                     onClick={() => signOut()}
                     className="bg-blue-400 px-4 py-2">
